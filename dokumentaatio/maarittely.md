@@ -3,5 +3,5 @@ Työn tarkoituksena on kehittää ohjelma 15-pelin ratkaisemiseen. Ohjelma saa s
 
 
 ### Lähteet
-https://en.wikipedia.org/wiki/15_puzzle
+https://en.wikipedia.org/wiki/15_puzzle  
 http://jamie-wong.com/2011/10/16/fifteen-puzzle-algorithm/
