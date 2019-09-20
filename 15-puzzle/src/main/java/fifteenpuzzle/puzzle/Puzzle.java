@@ -11,27 +11,46 @@ public class Puzzle {
         this.grid = new Grid();
     }
 
+    /**
+     * Resets the puzzle
+     */
     public void reset() {
         this.grid.reset();
     }
     
-    public void shuffle() {
-        //need to prevent making previous move again
-        for (int i = 0; i < 15; i++) {
-            moveRandom();
+    /**
+     * Shuffles the puzzle by making random moves
+     * 
+     * @param n     Number of random moves to make
+     */
+    public void shuffle(int n) {
+        int previous = 0;
+        for (int i = 0; i < n; i++) {          
+            previous = moveRandom(previous);
         }
     }
 
-    private void moveRandom() {
+    private int moveRandom(int forbidden) {
             Random random = new Random();
-            ArrayList<Tile> moves = possibleMoves();
-            Tile tile = moves.get(random.nextInt(moves.size()));
-            this.grid.move(tile.getY(), tile.getX());
-//            System.out.println("moving " + tile.getY() + ", " + tile.getX());
-//            System.out.println(this.toString());
-        
+            ArrayList<Position> moves = possibleMoves();
+            Position tile = moves.get(random.nextInt(moves.size()));
+            while (this.grid.getTiles()[tile.getY()][tile.getX()] == forbidden) {
+                System.out.println("invalid move: " + tile.getY() + ", " + tile.getX());
+                tile = moves.get(random.nextInt(moves.size()));
+            }
+            int moved = this.grid.move(tile.getY(), tile.getX());
+            
+            System.out.println("moving " + tile.getY() + ", " + tile.getX());
+            System.out.println(this.toString());
+            
+            return moved;        
     }
 
+    /**
+     * Returns a string representing the puzzle grid
+     * 
+     * @return  a string representing the puzzle
+     */
     @Override
     public String toString() {
         String s = "";
@@ -46,8 +65,8 @@ public class Puzzle {
         return s;
     }
 
-    private ArrayList<Tile> possibleMoves() {
-        ArrayList<Tile> list = new ArrayList<>();
+    private ArrayList<Position> possibleMoves() {
+        ArrayList<Position> list = new ArrayList<>();
         int size = grid.getTiles().length;
         int xEmpty = grid.getEmpty().getX();
         int yEmpty = grid.getEmpty().getY();
@@ -56,7 +75,7 @@ public class Puzzle {
                 for (int j = xEmpty - 1; j <= xEmpty + 1; j++) {
                     if (j >= 0 && j < size) {
                         if ((i != yEmpty || j != xEmpty) && (i == yEmpty || j == xEmpty)) {
-                            list.add(new Tile(i, j));
+                            list.add(new Position(i, j));
                         }
                     }
                 }

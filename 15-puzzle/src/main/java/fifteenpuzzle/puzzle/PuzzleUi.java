@@ -22,7 +22,7 @@ public class PuzzleUi {
                 puzzle.reset();
                 System.out.println("\n" + puzzle.toString());
             } else if (command.equals("shuffle")) {
-                puzzle.shuffle();
+                puzzle.shuffle(20);
                 System.out.println("\n" + puzzle.toString());
             } else if (command.equals("solve")) {
                 //puzzle.solve();
