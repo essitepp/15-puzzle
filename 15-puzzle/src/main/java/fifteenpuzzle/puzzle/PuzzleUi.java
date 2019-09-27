@@ -25,7 +25,7 @@ public class PuzzleUi {
                 puzzle.shuffle(20);
                 System.out.println("\n" + puzzle.toString());
             } else if (command.equals("solve")) {
-                //puzzle.solve();
+                puzzle.solve();
             } else if (command.equals("exit")) {
                 break;
             } else {

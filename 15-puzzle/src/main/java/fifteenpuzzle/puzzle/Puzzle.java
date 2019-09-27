@@ -1,6 +1,7 @@
 package fifteenpuzzle.puzzle;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 import java.util.Random;
 
 public class Puzzle {
@@ -17,39 +18,58 @@ public class Puzzle {
     public void reset() {
         this.grid.reset();
     }
-    
+
     /**
      * Shuffles the puzzle by making random moves
-     * 
-     * @param n     Number of random moves to make
+     *
+     * @param n Number of random moves to make
      */
     public void shuffle(int n) {
         int previous = 0;
-        for (int i = 0; i < n; i++) {          
+        for (int i = 0; i < n; i++) {
             previous = moveRandom(previous);
         }
     }
 
-    private int moveRandom(int forbidden) {
-            Random random = new Random();
-            ArrayList<Position> moves = possibleMoves();
-            Position tile = moves.get(random.nextInt(moves.size()));
-            while (this.grid.getTiles()[tile.getY()][tile.getX()] == forbidden) {
-                System.out.println("invalid move: " + tile.getY() + ", " + tile.getX());
-                tile = moves.get(random.nextInt(moves.size()));
+    public void solve() {
+        PriorityQueue<State> states = new PriorityQueue<>();
+        states.add(new State(0, new Grid(this.grid.getTiles())));
+
+        while (true) {
+            State currentState = states.poll();
+//            System.out.println(currentState.toString());
+
+            if (currentState.isSolved()) {
+                System.out.println("Solved in " + currentState.getSteps() + " steps");
+                break;
             }
-            int moved = this.grid.move(tile.getY(), tile.getX());
-            
-            System.out.println("moving " + tile.getY() + ", " + tile.getX());
-            System.out.println(this.toString());
-            
-            return moved;        
+
+            for (State next : currentState.getNeighbors()) {
+                states.add(next);
+            }
+
+        }
+    }
+
+    private int moveRandom(int forbidden) {
+        Random random = new Random();
+        ArrayList<Position> moves = possibleMoves();
+        Position tile = moves.get(random.nextInt(moves.size()));
+        while (this.grid.getTiles()[tile.getY()][tile.getX()] == forbidden) {
+//            System.out.println("invalid move: " + tile.getY() + ", " + tile.getX());
+            tile = moves.get(random.nextInt(moves.size()));
+        }
+        int moved = this.grid.move(tile.getY(), tile.getX());
+
+//        System.out.println("moving " + tile.getY() + ", " + tile.getX());
+//        System.out.println(this.toString());
+        return moved;
     }
 
     /**
      * Returns a string representing the puzzle grid
-     * 
-     * @return  a string representing the puzzle
+     *
+     * @return a string representing the puzzle
      */
     @Override
     public String toString() {
@@ -83,4 +103,13 @@ public class Puzzle {
         }
         return list;
     }
+
+    public Grid getGrid() {
+        return grid;
+    }
+
+    public void setGrid(Grid grid) {
+        this.grid = grid;
+    }
+
 }

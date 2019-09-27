@@ -26,4 +26,25 @@ public class Position {
         return x;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Position other = (Position) obj;
+        if (this.y != other.y) {
+            return false;
+        }
+        if (this.x != other.x) {
+            return false;
+        }
+        return true;
+    }
+
 }

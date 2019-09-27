@@ -1,5 +1,7 @@
 package fifteenpuzzle.puzzle;
 
+import java.util.Arrays;
+
 public class Grid {
 
     private int[][] tiles;
@@ -9,6 +11,18 @@ public class Grid {
         this.tiles = new int[4][4];
         this.empty = new Position(3, 3);
         reset();
+    }
+
+    public Grid(int[][] tiles) {
+        this.tiles = new int[4][4];
+        for (int i = 0; i < tiles.length; i++) {
+            for (int j = 0; j < tiles[0].length; j++) {
+                this.tiles[i][j] = tiles[i][j];
+                if (tiles[i][j] == 0) {
+                    this.empty = new Position(i, j);
+                }
+            }
+        }
     }
 
     /**
@@ -32,9 +46,10 @@ public class Grid {
     public Position getEmpty() {
         return empty;
     }
-    
+
     /**
      * Switches the empty space and the tile in the given position
+     *
      * @param y y-coordinate of the tile to be switched
      * @param x x-coordinate of the tile to be switched
      * @return value of the switched tile
@@ -47,5 +62,26 @@ public class Grid {
         empty.setY(y);
         return tile;
     }
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Grid other = (Grid) obj;
+        if (!Arrays.deepEquals(this.tiles, other.tiles)) {
+            return false;
+        }
+        if (!this.empty.equals(other.empty)) {
+            return false;
+        }
+        return true;
+    }
+
 }
