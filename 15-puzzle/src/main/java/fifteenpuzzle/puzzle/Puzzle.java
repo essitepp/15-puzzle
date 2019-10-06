@@ -3,6 +3,7 @@ package fifteenpuzzle.puzzle;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Random;
+import fifteenpuzzle.datastructures.Heap;
 
 public class Puzzle {
 
@@ -32,7 +33,8 @@ public class Puzzle {
     }
 
     public void solve() {
-        PriorityQueue<State> states = new PriorityQueue<>();
+//        PriorityQueue<State> states = new PriorityQueue<>();
+        Heap states = new Heap();
         states.add(new State(0, new Grid(this.grid.getTiles())));
 
         while (true) {
