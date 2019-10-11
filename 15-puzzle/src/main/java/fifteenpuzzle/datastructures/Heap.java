@@ -7,11 +7,18 @@ public class Heap {
     private State[] array;
     private int nextIndex;
 
+    /**
+     * Constructs a new empty heap.
+     */
     public Heap() {
         this.array = new State[10];
         this.nextIndex = 1;
     }
 
+    /**
+     * Adds the given State to the heap.
+     * @param state State to add to the heap
+     */
     public void add(State state) {
         array[nextIndex] = state;
         sortAdded(nextIndex);
@@ -21,10 +28,18 @@ public class Heap {
         }
     }
 
+    /**
+     * Returns the State with the lowest priority value.
+     * @return State with lowest priority value
+     */
     public State peek() {
         return array[1];
     }
 
+    /**
+     * Returns the State with the lowest priority value and removes it from the heap.
+     * @return State with lowest priority value
+     */
     public State poll() {
         if (nextIndex == 1) {
             return null;
@@ -36,6 +51,18 @@ public class Heap {
         return returnValue;
     }
 
+    /**
+     * Returns the number of States currently in the heap.
+     * @return numbers of States in the heap
+     */
+    public int size() {
+        return nextIndex - 1;
+    }
+
+    /**
+     * Used to sort the heap after a new State has been added.
+     * @param index the index the new State was added to
+     */
     private void sortAdded(int index) {
         int parentIndex = index / 2;
         if (parentIndex == 0) {
@@ -53,6 +80,9 @@ public class Heap {
         }
     }
 
+    /**
+     * Used to double the size of the array.
+     */
     private void increaseSize() {
         State[] newArray = new State[2 * array.length];
         for (int i = 0; i < array.length; i++) {
@@ -61,6 +91,9 @@ public class Heap {
         this.array = newArray;
     }
 
+    /**
+     * Used to sort the heap after a State has been removed.
+     */
     private void sortAfterRemove() {
         int index = 1;
         while (true) {

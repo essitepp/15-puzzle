@@ -1,6 +1,6 @@
 package fifteenpuzzle.puzzle;
 
-import java.util.ArrayList;
+import fifteenpuzzle.datastructures.ArrayList;
 
 public class State implements Comparable<State> {
 
@@ -10,11 +10,22 @@ public class State implements Comparable<State> {
     private int distance;
     private boolean solved;
 
+    /**
+     * Construct a new State.
+     * @param steps number of steps taken to reach this state
+     * @param grid grid containing the order of tiles for this state
+     * @param previous the state this state was reached from
+     */
     public State(int steps, Grid grid, Grid previous) {
         this(steps, grid);
         this.previous = previous;
     }
-
+    
+    /**
+     * Construct a new State.
+     * @param steps number of steps taken to reach this state
+     * @param grid grid containing the order of tiles for this state
+     */
     public State(int steps, Grid grid) {
         this.steps = steps;
         this.grid = grid;
@@ -34,6 +45,10 @@ public class State implements Comparable<State> {
         }
     }
 
+    /**
+     * Returns a list containing States that can be reached from current state by making one move.
+     * @return a list containing neighboring States
+     */
     public ArrayList<State> getNeighbors() {
         ArrayList<State> neighbors = new ArrayList<>();
 
@@ -59,18 +74,34 @@ public class State implements Comparable<State> {
         return neighbors;
     }
 
+    /**
+     * Returns true if the puzzle is solved in this State, otherwise returns false.
+     * @return true if puzzle is solved, otherwise false
+     */
     public boolean isSolved() {
         return solved;
     }
 
+    /**
+     * Returns the numbers of steps taken to reach this State.
+     * @return number of steps to reach this State
+     */
     public int getSteps() {
         return steps;
     }
 
+    /**
+     * Returns the State's grid.
+     * @return the State's grid
+     */
     public Grid getGrid() {
         return grid;
     }
 
+    /**
+     * Returns the State's distance from the puzzle's solution. The distance is calculated as sum of all tiles' Manhattan distances from the solution.
+     * @return State's distance from solution
+     */
     public int getDistance() {
         return distance;
     }
@@ -79,20 +110,4 @@ public class State implements Comparable<State> {
     public int compareTo(State t) {
         return (this.distance + this.steps) - (t.distance + t.steps);
     }
-
-    @Override
-    public String toString() {
-        String s = "";
-        int[][] tiles = this.grid.getTiles();
-        for (int i = 0; i < tiles.length; i++) {
-            for (int j = 0; j < tiles[0].length; j++) {
-                s += tiles[i][j];
-                s += "\t";
-            }
-            s += "\n";
-        }
-        return s + "steps: " + this.steps + "\ndistance: " + this.distance
-                + "\ntotal: " + (this.steps + this.distance) + "\n";
-    }
-
 }

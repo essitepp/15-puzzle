@@ -1,32 +1,37 @@
 package fifteenpuzzle.puzzle;
 
-import java.util.Arrays;
-
 public class Grid {
 
     private int[][] tiles;
-    private Position empty;
+    private Coordinates empty;
 
+    /**
+     * Constructs a new grid.
+     */
     public Grid() {
         this.tiles = new int[4][4];
-        this.empty = new Position(3, 3);
+        this.empty = new Coordinates(3, 3);
         reset();
     }
 
+    /**
+     * Construct a new grid with the specified order of tiles.
+     * @param tiles array containing order of tiles for the grid
+     */
     public Grid(int[][] tiles) {
         this.tiles = new int[4][4];
         for (int i = 0; i < tiles.length; i++) {
             for (int j = 0; j < tiles[0].length; j++) {
                 this.tiles[i][j] = tiles[i][j];
                 if (tiles[i][j] == 0) {
-                    this.empty = new Position(i, j);
+                    this.empty = new Coordinates(i, j);
                 }
             }
         }
     }
 
     /**
-     * Reset the grid
+     * Resets the grid.
      */
     public void reset() {
         for (int i = 0; i < 4; i++) {
@@ -39,16 +44,26 @@ public class Grid {
         this.empty.setY(3);
     }
 
+    /**
+     * Returns the array containing the order of the grid's tiles.
+     *
+     * @return array containing the order of the grid's tiles
+     */
     public int[][] getTiles() {
         return tiles;
     }
 
-    public Position getEmpty() {
+    /**
+     * Returns the position of the empty tile.
+     *
+     * @return position of the empty tile
+     */
+    public Coordinates getEmpty() {
         return empty;
     }
 
     /**
-     * Switches the empty space and the tile in the given position
+     * Switches the empty space and the tile in the given position.
      *
      * @param y y-coordinate of the tile to be switched
      * @param x x-coordinate of the tile to be switched
@@ -61,27 +76,6 @@ public class Grid {
         empty.setX(x);
         empty.setY(y);
         return tile;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Grid other = (Grid) obj;
-        if (!Arrays.deepEquals(this.tiles, other.tiles)) {
-            return false;
-        }
-        if (!this.empty.equals(other.empty)) {
-            return false;
-        }
-        return true;
     }
 
 }

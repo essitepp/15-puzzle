@@ -1,27 +1,29 @@
 package fifteenpuzzle.puzzle;
 
-import java.util.ArrayList;
-import java.util.PriorityQueue;
 import java.util.Random;
 import fifteenpuzzle.datastructures.Heap;
+import fifteenpuzzle.datastructures.ArrayList;
 
 public class Puzzle {
 
     private Grid grid;
 
+    /**
+     * Constructs a new puzzle.
+     */
     public Puzzle() {
         this.grid = new Grid();
     }
 
     /**
-     * Resets the puzzle
+     * Resets the puzzle.
      */
     public void reset() {
         this.grid.reset();
     }
 
     /**
-     * Shuffles the puzzle by making random moves
+     * Shuffles the puzzle by making random moves.
      *
      * @param n Number of random moves to make
      */
@@ -32,44 +34,48 @@ public class Puzzle {
         }
     }
 
+    /**
+     * Solves the puzzle.
+     */
     public void solve() {
-//        PriorityQueue<State> states = new PriorityQueue<>();
         Heap states = new Heap();
         states.add(new State(0, new Grid(this.grid.getTiles())));
 
         while (true) {
             State currentState = states.poll();
-//            System.out.println(currentState.toString());
 
             if (currentState.isSolved()) {
                 System.out.println("Solved in " + currentState.getSteps() + " steps");
                 break;
             }
 
-            for (State next : currentState.getNeighbors()) {
-                states.add(next);
+            ArrayList<State> neighbors = currentState.getNeighbors();
+            for (int i = 0; i < neighbors.size(); i++) {
+                states.add(neighbors.get(i));
             }
 
         }
     }
 
+    /**
+     * Makes a random move.
+     *
+     * @param forbidden value of a tile that must not be moved
+     * @return the value of the moved tile
+     */
     private int moveRandom(int forbidden) {
         Random random = new Random();
-        ArrayList<Position> moves = possibleMoves();
-        Position tile = moves.get(random.nextInt(moves.size()));
+        ArrayList<Coordinates> moves = possibleMoves();
+        Coordinates tile = moves.get(random.nextInt(moves.size()));
         while (this.grid.getTiles()[tile.getY()][tile.getX()] == forbidden) {
-//            System.out.println("invalid move: " + tile.getY() + ", " + tile.getX());
             tile = moves.get(random.nextInt(moves.size()));
         }
         int moved = this.grid.move(tile.getY(), tile.getX());
-
-//        System.out.println("moving " + tile.getY() + ", " + tile.getX());
-//        System.out.println(this.toString());
         return moved;
     }
 
     /**
-     * Returns a string representing the puzzle grid
+     * Returns a string representing the puzzle grid.
      *
      * @return a string representing the puzzle
      */
@@ -87,8 +93,13 @@ public class Puzzle {
         return s;
     }
 
-    private ArrayList<Position> possibleMoves() {
-        ArrayList<Position> list = new ArrayList<>();
+    /**
+     * Returns a list containing positions of tiles that can be moved.
+     *
+     * @return list containing positions of tiles that can be moved
+     */
+    private ArrayList<Coordinates> possibleMoves() {
+        ArrayList<Coordinates> list = new ArrayList<>();
         int size = grid.getTiles().length;
         int xEmpty = grid.getEmpty().getX();
         int yEmpty = grid.getEmpty().getY();
@@ -97,7 +108,7 @@ public class Puzzle {
                 for (int j = xEmpty - 1; j <= xEmpty + 1; j++) {
                     if (j >= 0 && j < size) {
                         if ((i != yEmpty || j != xEmpty) && (i == yEmpty || j == xEmpty)) {
-                            list.add(new Position(i, j));
+                            list.add(new Coordinates(i, j));
                         }
                     }
                 }
@@ -106,10 +117,20 @@ public class Puzzle {
         return list;
     }
 
+    /**
+     * Returns the puzzle's grid.
+     *
+     * @return the puzzle's grid
+     */
     public Grid getGrid() {
         return grid;
     }
 
+    /**
+     * Sets the puzzle's grid.
+     *
+     * @param grid grid to set to puzzle
+     */
     public void setGrid(Grid grid) {
         this.grid = grid;
     }
