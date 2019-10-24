@@ -38,6 +38,7 @@ public class Puzzle {
      * Solves the puzzle.
      */
     public void solve() {
+        long startTime = System.currentTimeMillis();
         Heap states = new Heap();
         states.add(new State(0, new Grid(this.grid.getTiles())));
 
@@ -45,7 +46,9 @@ public class Puzzle {
             State currentState = states.poll();
 
             if (currentState.isSolved()) {
-                System.out.println("Solved in " + currentState.getSteps() + " steps");
+                long endTime = System.currentTimeMillis();
+                System.out.println("Solved in " + currentState.getSteps() + " steps\n"
+                        + "Time: " + (endTime - startTime) + " ms");
                 break;
             }
 

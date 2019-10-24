@@ -17,6 +17,7 @@ public class Heap {
 
     /**
      * Adds the given State to the heap.
+     *
      * @param state State to add to the heap
      */
     public void add(State state) {
@@ -30,14 +31,20 @@ public class Heap {
 
     /**
      * Returns the State with the lowest priority value.
+     *
      * @return State with lowest priority value
      */
     public State peek() {
+        if (nextIndex == 1) {
+            return null;
+        }
         return array[1];
     }
 
     /**
-     * Returns the State with the lowest priority value and removes it from the heap.
+     * Returns the State with the lowest priority value and removes it from the
+     * heap.
+     *
      * @return State with lowest priority value
      */
     public State poll() {
@@ -53,6 +60,7 @@ public class Heap {
 
     /**
      * Returns the number of States currently in the heap.
+     *
      * @return numbers of States in the heap
      */
     public int size() {
@@ -61,6 +69,7 @@ public class Heap {
 
     /**
      * Used to sort the heap after a new State has been added.
+     *
      * @param index the index the new State was added to
      */
     private void sortAdded(int index) {
