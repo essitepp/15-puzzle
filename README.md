@@ -1,6 +1,9 @@
 # 15-puzzle
 
-[Määrittely](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/maarittely.md)
+[Määrittelydokumentti](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/maarittely.md)
+[Toteutusdokumentti](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/toteutusdokumentti.md)
+[Testausdokumentti](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/testausdokumentti.md)
+[Käyttöohje](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/kayttoohje.md)
 
 
 [Viikkoraportti 1](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/viikkoraportti1.md)  
