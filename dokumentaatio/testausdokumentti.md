@@ -2,7 +2,7 @@
 
 
 
-Sovelluksen luokkia, käyttöliittymäluokkaa lukuunottamatta, on testattu JUnit-testeillä. Käyttöliittymä on testattu manuaalisesti. Myös luokan Puzzle metodin solve testaus on tehty manuaalisesti.
+Sovelluksen luokkia, käyttöliittymäluokkaa lukuunottamatta, on testattu JUnit-testeillä. Käyttöliittymä on testattu manuaalisesti. Myös luokan Puzzle metodin solve() testaus on tehty manuaalisesti.
 
 ## Luokkien testikattavuudet
 
