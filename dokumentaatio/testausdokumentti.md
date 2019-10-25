@@ -6,8 +6,8 @@ Sovelluksen luokkia, käyttöliittymäluokkaa lukuunottamatta, on testattu JUnit
 
 ### Luokkien testikattavuudet
 
-!(https://github.com/essitepp/15-puzzle/tree/master/dokumentaatio/kuvat/testikattavuus1.png)
-!(https://github.com/essitepp/15-puzzle/tree/master/dokumentaatio/kuvat/testikattavuus1.png)
+![](https://github.com/essitepp/15-puzzle/tree/master/dokumentaatio/kuvat/testikattavuus1.png)  
+![](https://github.com/essitepp/15-puzzle/tree/master/dokumentaatio/kuvat/testikattavuus1.png)
 
 
 ## Ratkaisualgoritmin tehokkuus
