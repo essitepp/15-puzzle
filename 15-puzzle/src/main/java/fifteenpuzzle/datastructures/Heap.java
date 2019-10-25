@@ -1,7 +1,5 @@
 package fifteenpuzzle.datastructures;
 
-import fifteenpuzzle.puzzle.State;
-
 public class Heap {
 
     private State[] array;

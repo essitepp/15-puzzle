@@ -1,12 +1,7 @@
 package fifteenpuzzle.datastructures;
 
-import fifteenpuzzle.puzzle.Grid;
-import fifteenpuzzle.puzzle.State;
 import java.util.Random;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

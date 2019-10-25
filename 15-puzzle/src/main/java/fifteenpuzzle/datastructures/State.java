@@ -1,6 +1,4 @@
-package fifteenpuzzle.puzzle;
-
-import fifteenpuzzle.datastructures.ArrayList;
+package fifteenpuzzle.datastructures;
 
 public class State implements Comparable<State> {
 

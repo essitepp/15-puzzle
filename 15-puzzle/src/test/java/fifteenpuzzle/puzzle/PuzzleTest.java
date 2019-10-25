@@ -1,5 +1,6 @@
 package fifteenpuzzle.puzzle;
 
+import fifteenpuzzle.datastructures.Grid;
 import static org.hamcrest.CoreMatchers.anyOf;
 import static org.hamcrest.CoreMatchers.is;
 import org.junit.Before;
@@ -30,5 +31,11 @@ public class PuzzleTest {
             puzzle.shuffle(1);
             assertThat(puzzle.getGrid().getTiles()[1][1], anyOf(is(2), is(5), is(7), is(10)));
         }
+    }
+    
+    @Test
+    public void toStringCorrect() {
+        String expected = "1\t2\t3\t4\t\n5\t6\t7\t8\t\n9\t10\t11\t12\t\n13\t14\t15\t0\t\n";
+        assertEquals(expected, puzzle.toString());
     }
 }

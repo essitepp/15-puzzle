@@ -1,4 +1,4 @@
-package fifteenpuzzle.puzzle;
+package fifteenpuzzle.datastructures;
 
 public class Coordinates {
 

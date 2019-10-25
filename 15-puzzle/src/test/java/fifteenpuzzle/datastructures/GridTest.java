@@ -1,4 +1,4 @@
-package fifteenpuzzle.puzzle;
+package fifteenpuzzle.datastructures;
 
 import org.junit.Assert;
 import org.junit.Before;

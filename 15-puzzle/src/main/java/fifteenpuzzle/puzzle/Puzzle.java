@@ -1,8 +1,7 @@
 package fifteenpuzzle.puzzle;
 
+import fifteenpuzzle.datastructures.*;
 import java.util.Random;
-import fifteenpuzzle.datastructures.Heap;
-import fifteenpuzzle.datastructures.ArrayList;
 
 public class Puzzle {
 
@@ -47,8 +46,8 @@ public class Puzzle {
 
             if (currentState.isSolved()) {
                 long endTime = System.currentTimeMillis();
-                System.out.println("Solved in " + currentState.getSteps() + " steps\n"
-                        + "Time: " + (endTime - startTime) + " ms");
+                System.out.println("\nSolved in " + currentState.getSteps() + " steps\n"
+                        + "Time: " + (endTime - startTime) + " ms\n");
                 break;
             }
 

@@ -1,6 +1,5 @@
-package fifteenpuzzle.puzzle;
+package fifteenpuzzle.datastructures;
 
-import fifteenpuzzle.datastructures.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

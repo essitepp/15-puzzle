@@ -1,5 +1,6 @@
-package fifteenpuzzle.puzzle;
+package fifteenpuzzle.ui;
 
+import fifteenpuzzle.puzzle.Puzzle;
 import java.util.Scanner;
 
 public class PuzzleUi {
