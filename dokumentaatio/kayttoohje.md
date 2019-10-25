@@ -7,6 +7,8 @@ Ohjelma käynnistetään komennolla
 java -jar 15-puzzle.jar
 ```
 
+
+
 Ohjelma tulostaa käynnistyessään peliruudukon ja listan mahdollisista komennoista.
 
 Komento **reset** palauttaa peliruudukon alkutilaan.  
