@@ -1,8 +1,8 @@
 # 15-puzzle
 
-[Määrittelydokumentti](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/maarittely.md)
-[Toteutusdokumentti](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/toteutusdokumentti.md)
-[Testausdokumentti](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/testausdokumentti.md)
+[Määrittelydokumentti](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/maarittely.md)  
+[Toteutusdokumentti](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/toteutusdokumentti.md)  
+[Testausdokumentti](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/testausdokumentti.md)  
 [Käyttöohje](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/kayttoohje.md)
 
 
