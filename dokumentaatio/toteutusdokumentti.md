@@ -1,4 +1,4 @@
-## Toteutusdokumentti
+# Toteutusdokumentti
 
 
 Ohjelmassa on käytössä tekstikäyttöliittymä. Pelin logiikasta huolehtii luokka Puzzle. Näiden lisäksi ohjelmassa on erilaisia tietorakenneluokkia.
