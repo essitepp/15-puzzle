@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto [15-puzzle.jar](https://github.com/essitepp/15-puzzle/releases/tag/Loppupalautus).
+Lataa tiedosto [15-puzzle.jar](https://github.com/essitepp/15-puzzle/releases/tag/loppupalautus).
 
 Ohjelma käynnistetään komennolla 
 ```
