@@ -1,10 +1,10 @@
-## Testausdokumentti
+# Testausdokumentti
 
 
 
 Sovelluksen luokkia, käyttöliittymäluokkaa lukuunottamatta, on testattu JUnit-testeillä. Käyttöliittymä on testattu manuaalisesti. Myös luokan Puzzle metodin solve testaus on tehty manuaalisesti.
 
-### Luokkien testikattavuudet
+## Luokkien testikattavuudet
 
 ![](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/kuvat/testikattavuus1.png)  
 ![](https://github.com/essitepp/15-puzzle/blob/master/dokumentaatio/kuvat/testikattavuus2.png)  
